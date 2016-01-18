@@ -388,7 +388,8 @@ if ( defined( 'ABSPATH' )
 
 			if ( is_admin()
 				&& ! is_user_logged_in()
-				&& ! defined( 'DOING_AJAX' ) ) {
+				&& ! defined( 'DOING_AJAX' )
+				&& $pagenow !== 'admin-post.php' ) {
 
 				status_header(404);
                 nocache_headers();
