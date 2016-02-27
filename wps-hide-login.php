@@ -394,7 +394,7 @@ if ( defined( 'ABSPATH' )
 				status_header(404);
                 nocache_headers();
                 if ( get_404_template() ) {
-                    include( get_404_template() );
+                    locate_template( array( '404.php' ), true, true );
                 }
                 exit;
 			}
