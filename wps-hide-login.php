@@ -322,7 +322,8 @@ if ( defined( 'ABSPATH' )
 
 			if ( ! is_network_admin()
 				&& $pagenow === 'options-general.php'
-				&& isset( $_GET['settings-updated'] ) ) {
+				&& isset( $_GET['settings-updated'] )
+				&& ! isset( $_GET['page'] ) ) {
 
 				echo '<div class="updated notice is-dismissible"><p>' . sprintf( __( 'Your login page is now here: <strong><a href="%1$s">%2$s</a></strong>. Bookmark this page!', 'wps-hide-login' ), $this->new_login_url(), $this->new_login_url() ) . '</p></div>';
 
