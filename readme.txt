@@ -37,18 +37,6 @@ For W3 Total Cache and WP Super Cache this plugin will give you a message with a
 
 https://github.com/tabrisrp/wps-hide-login
 
-= Description Française =
-WPS Hide Login est un plugin très léger qui vous permet facilement et en toute sécurité de modifier l'URL de connexion en ce que vous voulez.
-
-Il ne renomme pas ou ne modifie pas de fichiers dans le noyau, et n'ajoute pas de règles de réécriture.  Il intercepte tout simplement les demandes de page et fonctionne sur n'importe quel site WordPress.
-
-La page wp-login.php et le répertoire wp-admin deviennent donc inaccessibles, vous devrez donc bookmarker ou vous rappeler l'url. Désactiver ce plugin ramène tout simplement votre site à son état initial.
-
-= Compatibilité =
-Nécessite WordPress 4.1 ou supérieur.
-
-Si vous utilisez un plugin de cache autre que WP Rocket, vous devrez ajouter la nouvelle URL de connexion à la liste des pages à ne pas mettre en cache.
-
 == Installation ==
 
 1. Go to Plugins › Add New.
