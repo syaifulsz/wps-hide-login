@@ -302,7 +302,7 @@ if ( ! class_exists( 'Rename_WP_Login' )
 
 			if ( function_exists( 'env' ) && env( 'WP_CUSTOM_LOGIN_SLUG' ) || ( defined('WP_CUSTOM_LOGIN_SLUG') && WP_CUSTOM_LOGIN_SLUG )) {
 
-				$out .= '<p>Constant <code>WP_CUSTOM_LOGIN_SLUG</code> is defined in config. New login url is <code>' . home_url( env( 'WP_CUSTOM_LOGIN_SLUG', defined( 'WP_CUSTOM_LOGIN_SLUG' ) ? WP_CUSTOM_LOGIN_SLUG : null ) ) .'</code>.</p>';
+				$out .= '<p>Constant <code>WP_CUSTOM_LOGIN_SLUG</code> is defined in config. New login url is <code>' . home_url( env( 'WP_CUSTOM_LOGIN_SLUG' ) ?: defined( 'WP_CUSTOM_LOGIN_SLUG' ) ? WP_CUSTOM_LOGIN_SLUG : null ) .'</code>.</p>';
 
 			}
 
