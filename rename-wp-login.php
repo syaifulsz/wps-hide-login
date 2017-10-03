@@ -51,7 +51,11 @@ if ( ! class_exists( 'Rename_WP_Login' )
 
 		private function new_login_slug() {
 
-			if ( ( $slug = get_option( 'rwl_page' ) )
+			if ( function_exists( 'env' ) && env( 'WP_CUSTOM_LOGIN_SLUG' ) ) {
+				return env( 'WP_CUSTOM_LOGIN_SLUG', 'login' );
+			} else if ( defined( 'WP_CUSTOM_LOGIN_SLUG' && WP_CUSTOM_LOGIN_SLUG ) ) {
+				return WP_CUSTOM_LOGIN_SLUG;
+			} else if ( ( $slug = get_option( 'rwl_page' ) )
 				|| ( is_multisite()
 					&& is_plugin_active_for_network( $this->basename() )
 					&& ( $slug = get_site_option( 'rwl_page', 'login' ) ) )
@@ -293,6 +297,12 @@ if ( ! class_exists( 'Rename_WP_Login' )
 				&& is_plugin_active_for_network( $this->basename() ) ) {
 
 				$out .= '<p>To set a networkwide default, go to <a href="' . network_admin_url( 'settings.php#rwl-page-input' ) . '">Network Settings</a>.</p>';
+
+			}
+
+			if ( function_exists( 'env' ) && env( 'WP_CUSTOM_LOGIN_SLUG' ) || ( defined('WP_CUSTOM_LOGIN_SLUG') && WP_CUSTOM_LOGIN_SLUG )) {
+
+				$out .= '<p>Constant <code>WP_CUSTOM_LOGIN_SLUG</code> is defined in config. New login url is <code>' . home_url( env( 'WP_CUSTOM_LOGIN_SLUG', defined( 'WP_CUSTOM_LOGIN_SLUG' ) ? WP_CUSTOM_LOGIN_SLUG : null ) ) .'</code>.</p>';
 
 			}
 
